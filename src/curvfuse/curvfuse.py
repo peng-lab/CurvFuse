@@ -1,13 +1,13 @@
 import numpy as np
-from feature_extraction import NSCTdec
-from boundary_estimation import estimate_boundary
+from .feature_extraction import NSCTdec
+from .boundary_estimation import estimate_boundary
 from skimage.filters import threshold_otsu
 from skimage.morphology import remove_small_objects
-from boundary_refinement import mask_circle_func
+from .boundary_refinement import mask_circle_func
 import tqdm
 import torch
 import torch.nn.functional as F
-from guided_filtering_fusion import fusion_perslice
+from .guided_filtering_fusion import fusion_perslice
 
 
 def curvfuse(

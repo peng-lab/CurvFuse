@@ -1,4 +1,4 @@
-from to_polar_space import cartesian_to_polar
+from .to_polar_space import cartesian_to_polar
 import numpy as np
 from skimage.morphology import remove_small_objects
 import cv2

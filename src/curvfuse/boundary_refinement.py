@@ -1,5 +1,5 @@
 import numpy as np
-from to_polar_space import cartesian_to_polar
+from .to_polar_space import cartesian_to_polar
 from skimage.morphology import disk
 from scipy.ndimage import binary_dilation, binary_opening
 
