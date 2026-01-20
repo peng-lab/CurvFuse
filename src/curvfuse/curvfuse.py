@@ -55,12 +55,12 @@ def curvfuse(
     )
 
     for i in range(input_center.shape[0]):
-        _, _, std_center[i] = nsct_dec(
+        _, _, std_center[i] = nsct_dec.nsctDec(
             input_center[i : i + 1, None],
             stride=downsample_factor,
             _forFeatures=True,
         )
-        _, _, std_edge[i] = nsct_dec(
+        _, _, std_edge[i] = nsct_dec.nsctDec(
             input_edge[i : i + 1, None],
             stride=downsample_factor,
             _forFeatures=True,
