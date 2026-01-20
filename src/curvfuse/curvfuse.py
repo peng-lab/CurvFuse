@@ -54,7 +54,11 @@ def curvfuse(
         dtype=np.float32,
     )
 
-    for i in range(input_center.shape[0]):
+    for i in tqdm.tqdm(
+        range(input_center.shape[0]),
+        desc="Extracting features: ",
+        leave=False,
+    ):
         _, _, std_center[i] = nsct_dec.nsctDec(
             input_center[i : i + 1, None],
             stride=downsample_factor,
@@ -90,7 +94,11 @@ def curvfuse(
 
     result = np.zeros_like(input_center)
 
-    for i in tqdm.tqdm(range(input_center.shape[0])):
+    for i in tqdm.tqdm(
+        range(input_center.shape[0]),
+        desc="Fusing slices: ",
+        leave=False,
+    ):
         result[i], _ = fusion_perslice(
             np.stack(
                 (
