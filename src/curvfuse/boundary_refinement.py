@@ -15,9 +15,9 @@ def mask_circle_func(best_i, cx, cy, img_center, seg_2, scale):
     seg_ds = seg_2[..., ::scale, ::scale]
     fg = (seg_ds > 0) * (seg_ds < 2)
     if margin_pix > 0:
-        fg = binary_dilation(fg, structure=disk(margin_pix)[None, None]).astype(
-            np.float32
-        )
+        fg = binary_dilation(fg, structure=disk(margin_pix)[None]).astype(np.float32)[
+            :, None
+        ]
 
     # to polar space
     fg_polar_vol = cartesian_to_polar(fg, T=T, center=(cx, cy)).cpu().numpy()
