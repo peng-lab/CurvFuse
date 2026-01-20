@@ -23,7 +23,7 @@ def mask_circle_func(best_i, cx, cy, img_center, seg_2, scale):
     fg_polar_vol = cartesian_to_polar(fg, T=T, center=(cx, cy)).cpu().numpy()
     mask_circle_vol = np.zeros(
         img_center[..., ::scale, ::scale].shape, dtype=np.float32
-    )
+    )[:, None]
 
     for ind, fg_polar in enumerate(fg_polar_vol):
         fg_polar = fg_polar[0] > 0  # [T,R]
