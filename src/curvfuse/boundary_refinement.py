@@ -72,7 +72,7 @@ def mask_circle_func(best_i, cx, cy, img_center, seg_2, scale):
             r_adj = np.convolve(r_pad, ker, mode="valid").astype(int)
 
         # back to image space
-        H, W = img_center[:, :, ::scale, ::scale].shape[-2:]
+        H, W = img_center[:, ::scale, ::scale].shape[-2:]
         yy, xx = np.mgrid[0:H, 0:W]
         ang = np.arctan2(yy - cy, xx - cx)  # [-pi, pi]
         t_idx = np.floor((ang + np.pi) / (2 * np.pi) * T_eff).astype(int)
