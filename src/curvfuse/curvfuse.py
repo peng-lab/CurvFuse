@@ -108,7 +108,7 @@ def curvfuse(
             )[:, None],
             F.interpolate(
                 torch.from_numpy(
-                    np.stack((mask_circle[i], 1 - mask_circle[i, 0]))[:, None].astype(
+                    np.stack((mask_circle[i], 1 - mask_circle[i])).astype(
                         np.float32
                     )
                 ),
